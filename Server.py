@@ -18,13 +18,11 @@ sock.listen(5)
 print("Aguardando cenexão!")
 
 def conectado(con, cliente):
-
-    print('Conectado por ', cliente)
-
     while True:
-        arquivos = open("arquivo.txt", "a")
+        arquivos = open("arquivo.json", "a")
         try:
             msg = con.recv(1024)
+            print('Conectado por ', cliente)
             if not msg: break
             print(msg.decode('ascii'))
             arquivos.write(msg.decode('ascii'))
